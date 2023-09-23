@@ -58,16 +58,25 @@ class ViewController: UIViewController,
   
   
   // Called when user taps on the mushroom
-  @IBAction func didTapMushroom(_ sender: UITapGestureRecognizer) {
-    animateMushroom()
-    
-    // Exercise 1: Assign the result of MushroomGenerator.maybeGenerateMushroomPowerup()
-    // to a variable. Print something if it's not nil
-    // ...
-    
-    // Exercise 2: Use the powerup on Mario using the useMushroomPowerupOnMario function
-    // ...
-  }
+    @IBAction func didTapMushroom(_ sender: UITapGestureRecognizer) {
+        animateMushroom()
+        
+        // Exercise 1: Assign the result of MushroomGenerator.maybeGenerateMushroomPowerup()
+        // to a variable. Print something if it's not nil
+        // ...
+        animateMushroom()
+        /*if*/ let powerup = MushroomGenerator.maybeGenerateMushroomPowerup() //{ // if the result is non-nil, assign the result to the powerup variable and run the logic inside
+      //      useMushroomPowerupOnMario(powerup: powerup) // `powerup` is now of type `MushroomPowerup`. `powerup` is only accessible from inside the if-let curly brace
+        //}
+        
+        if powerup != nil { // we can use == or != to check if something is nil or not
+         print("Got a powerup!")
+         } else {
+         print("Didn't get a powerup")
+         }
+        
+        // Exercise 2: Use the powerup on Mario using the useMushroomPowerupOnMario function
+    }
   
   private func useMushroomPowerupOnMario(powerup: MushroomPowerup) {
     scale(kart: kartView1)
